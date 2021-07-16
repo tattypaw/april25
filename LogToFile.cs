@@ -12,6 +12,10 @@ namespace april25
         }
         public LogToFile(string path)
         {
+            if (path == string.Empty)
+            {
+                throw new Exception("Пустой путь к файлу")
+            }
             _path = path;
         }
     }
