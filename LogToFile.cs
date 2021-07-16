@@ -26,8 +26,10 @@ namespace april25
         {
             try
             {
-                using (var file = new StreamWriter(_path, true)) ;
-                file.WriteLine(message);
+                using (var file = new StreamWriter(_path, true))
+                {
+                    file.WriteLine(message);
+                }
             }
             catch (UnauthorizedAccessException)
             {
@@ -44,10 +46,6 @@ namespace april25
             catch (IOException)
             {
                 throw new Exception("Параметр включает неверный или недопустимый синтаксис");
-            }
-            catch (PathTooLongException)
-            {
-                throw new Exception("Указанный путь слишком длинный");
             }
             catch (SecurityException)
             {
